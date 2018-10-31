@@ -9,7 +9,8 @@ plotsense.sh [OPTION] [TARGET]
   -r [ARG],	Duration of each cycle, in [ARG] seconds (Default: 1)
   -s,		Do not print output to the terminal
   -S,		Do not print header if output to file
-  -h,		Print this usage information
+  -h,		Print usage information
+  
 [TARGET] is a name from lm_sensors, for instance 'fan6'.
 It must also be the name for an RPM, V(olts), or °C value.
 Number of cycles (-c) must be an integer.
