@@ -76,7 +76,7 @@ fi
 if [ -n "$filefluff" ] && [ -n "$outputfile" ] ; then
 echo "# Made with plotsense.sh" >> "$outputfile"
 echo "# Target was: "$targetarg"" >> "$outputfile"
-echo "# Number of cycles: "$durationvar"" >> "$outputfile"
+[ -n "$durationvar" ] && echo "# Number of cycles: "$durationvar"" >> "$outputfile"
 echo "# Cycle duration: "${spacetime}"s" >> "$outputfile"
 printf "\nCycles	Value\n" >> "$outputfile"
 fi
