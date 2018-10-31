@@ -83,20 +83,14 @@ fi
 
 while true
 do
-	[ -n "$durationvar" ] && [ "$cycles" -eq "$durationvar" ] && echo "Completed final cycle." && exit
+	[ -n "$durationvar" ] && [ "$cycles" -gt "$durationvar" ] && echo "Completed final cycle." && exit
 	value=$(awkvalue)
 	[ -n "$outputfile" ] && echo "$cycles	$value" >> "$outputfile"
 	if [ -z "$silent" ] ; then
 		[ "$cycles" -eq 0 ] && echo "Cycles	Value"
 		echo "$cycles	$value"
 	fi
-	let cycles="$cycles"+1
-	sleep "$spacetime"s
-done &
-
-while read -sn 1 QUIT && [[ "$QUIT" != 'q' ]];
-do
-	true
+	read -rsn 1 -t $spacetime
+	[ "${REPLY:-x}" == 'q' ] && exit
+	cycles=$((cycles + 1))
 done
-
-kill %1
