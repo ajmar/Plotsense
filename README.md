@@ -1,5 +1,5 @@
 # Plotsense
-A bash script that records an output from lm_sensors (Temperature, RPM, Volts) into a file and/or the shell, with a configurable cycle duration &amp; total duration. Intended for benchmarking CPU temperatures, Fan speed, and Voltages. POSIX compatible.
+A bash script that records an output from lm_sensors (Temperature, RPM, Volts) into a file and/or the shell, with a configurable cycle duration &amp; total duration. Intended for benchmarking CPU temperatures, Fan speed, and Voltages. Works with POSIX compatible shells, though requires lm_sensors.
 
 # Usage
 ```
