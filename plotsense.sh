@@ -45,13 +45,13 @@ shift $((OPTIND - 1))
 [ "$#" = 0 ] && echo "[ERROR]: No arguments were supplied. Try -h for a list of acceptable syntax." && exit
 
 targetarg="$1"
-function measurementfield1 {
+measurementfield1 () {
 	sensors | awk -v targetarg="$targetarg" '$0 ~ targetarg{print}' | awk -F: '//{print $2}' | awk '//{print $1}' | sed 's/+//g'
 }
-function awkvalue {
+awkvalue () {
 	sensors | awk -v targetarg="$targetarg" '$0 ~ targetarg{print}' | awk -F: '//{print $2}' | awk '//{print $1" "$2}' | sed 's/+//g'
 }
-function measurementlastchar {
+measurementlastchar () {
 	echo "$(awkvalue)" | sed -e 's/\(^.*\)\(.$\)/\2/'
 }
 
